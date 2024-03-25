@@ -20,7 +20,7 @@ public class TourLogEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "FK_tourID")
     private TourEntity tour;
-//WS
+//WSas
     private LocalDateTime dateTime;
     private String comment;
     private String difficulty;
