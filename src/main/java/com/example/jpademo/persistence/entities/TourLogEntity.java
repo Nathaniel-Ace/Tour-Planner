@@ -1,10 +1,7 @@
 package com.example.jpademo.persistence.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -23,7 +20,7 @@ public class TourLogEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "FK_tourID")
     private TourEntity tour;
-
+//WS
     private LocalDateTime dateTime;
     private String comment;
     private String difficulty;
