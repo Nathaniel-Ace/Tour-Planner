@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 @SpringBootTest
 @Transactional
 class JpaDemoApplicationTests {
@@ -93,5 +90,6 @@ class JpaDemoApplicationTests {
         System.out.println("find addresses by person:");
         addressRepository.findByPerson(anna).forEach(System.out::println);
     }
+
 
 }
