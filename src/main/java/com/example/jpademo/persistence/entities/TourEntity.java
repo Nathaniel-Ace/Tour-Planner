@@ -16,7 +16,8 @@ public class TourEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "id")
+    private Long tour_id;
 
     private String name;
     private String description;
