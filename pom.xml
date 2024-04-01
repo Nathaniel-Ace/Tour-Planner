@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>jpa_demo</artifactId>
+    <artifactId>TourPlanner_Panganiban_Koc</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>jpa_demo</name>
     <description>jpa_demo</description>
