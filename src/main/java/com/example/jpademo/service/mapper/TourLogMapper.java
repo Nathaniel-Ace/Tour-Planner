@@ -12,11 +12,7 @@ import java.time.LocalDateTime;
 @Component
 public class TourLogMapper extends AbstractMapper<TourLogEntity, TourLogDto>{
 
-    private final TourMapper tourMapper;
-
-    public TourLogMapper(TourMapper tourMapper) {
-        this.tourMapper = tourMapper;
-    }
+    public TourLogMapper() {}
 
     @Autowired
     private TourRepository tourRepository;
