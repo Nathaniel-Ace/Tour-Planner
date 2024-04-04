@@ -21,16 +21,7 @@ public class TourServiceImpl implements TourService {
 
     @Override
     public void saveNewTour(TourDto tourDto) {
-        TourEntity entity = TourEntity.builder()
-                .name(tourDto.getName())
-                .description(tourDto.getDescription())
-                .from_location(tourDto.getFrom_location())
-                .to_location(tourDto.getTo_location())
-                .transport_type(tourDto.getTransport_type())
-                .distance(tourDto.getDistance())
-                .time(tourDto.getTime())
-                .route_info(tourDto.getRoute_info())
-                .build();
+        TourEntity entity = tourMapper.mapToEntity(tourDto);
         tourRepository.save(entity);
     }
 

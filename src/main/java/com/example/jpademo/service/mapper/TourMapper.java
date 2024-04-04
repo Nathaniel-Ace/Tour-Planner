@@ -24,7 +24,6 @@ public class TourMapper extends AbstractMapper<TourEntity, TourDto>{
 
     public TourEntity mapToEntity(TourDto dto) {
         return TourEntity.builder()
-                .tour_id(dto.getId())
                 .name(dto.getName())
                 .description(dto.getDescription())
                 .from_location(dto.getFrom_location())
