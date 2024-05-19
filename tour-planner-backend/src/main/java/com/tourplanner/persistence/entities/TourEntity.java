@@ -26,6 +26,6 @@ public class TourEntity {
     private String transport_type;
     private float distance;
     private int time;
-    private String route_info;
+//    private String route_info;
 
 }

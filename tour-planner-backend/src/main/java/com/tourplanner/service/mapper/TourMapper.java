@@ -18,7 +18,7 @@ public class TourMapper extends AbstractMapper<TourEntity, TourDto>{
                 .transport_type(source.getTransport_type())
                 .distance(source.getDistance())
                 .time(source.getTime())
-                .route_info(source.getRoute_info())
+//                .route_info(source.getRoute_info())
                 .build();
     }
 
@@ -31,7 +31,7 @@ public class TourMapper extends AbstractMapper<TourEntity, TourDto>{
                 .transport_type(dto.getTransport_type())
                 .distance(dto.getDistance())
                 .time(dto.getTime())
-                .route_info(dto.getRoute_info())
+//                .route_info(dto.getRoute_info())
                 .build();
     }
 

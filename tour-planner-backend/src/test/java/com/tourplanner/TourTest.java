@@ -32,7 +32,7 @@ public class TourTest {
                 .transport_type("Bus")
                 .distance(100)
                 .time(2)
-                .route_info("Route 1")
+//                .route_info("Route 1")
                 .build();
 
         tour2 = TourEntity.builder()
@@ -43,7 +43,7 @@ public class TourTest {
                 .transport_type("Train")
                 .distance(200)
                 .time(3)
-                .route_info("Route 2")
+//                .route_info("Route 2")
                 .build();
     }
 
