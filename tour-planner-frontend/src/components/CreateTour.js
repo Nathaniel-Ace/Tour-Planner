@@ -45,8 +45,8 @@ const CreateTour = () => {
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="date"
-                            label="Datum"
+                            name="name"
+                            label="Name"
                             variant="outlined"
                             value={formData.date}
                             onChange={handleChange}
@@ -55,8 +55,8 @@ const CreateTour = () => {
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="duration"
-                            label="Dauer"
+                            name="tour_desc"
+                            label="Tour Description"
                             variant="outlined"
                             value={formData.duration}
                             onChange={handleChange}
@@ -65,8 +65,8 @@ const CreateTour = () => {
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="distance"
-                            label="Entfernung"
+                            name="from"
+                            label="From"
                             variant="outlined"
                             value={formData.distance}
                             onChange={handleChange}
@@ -75,8 +75,38 @@ const CreateTour = () => {
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="rating"
-                            label="Bewertung"
+                            name="to"
+                            label="To"
+                            variant="outlined"
+                            value={formData.rating}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            name="transport_type"
+                            label="Transport Type"
+                            variant="outlined"
+                            value={formData.rating}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            name="distance"
+                            label="Tour Distance"
+                            variant="outlined"
+                            value={formData.rating}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <TextField
+                            fullWidth
+                            name="time"
+                            label="Estimated Time"
                             variant="outlined"
                             value={formData.rating}
                             onChange={handleChange}
@@ -84,7 +114,7 @@ const CreateTour = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <Button type="submit" variant="contained" color="primary">
-                            Erstellen
+                            Create
                         </Button>
                     </Grid>
                 </Grid>
