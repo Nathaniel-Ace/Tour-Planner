@@ -12,10 +12,13 @@ import axios from 'axios';
 
 const CreateTour = () => {
     const [formData, setFormData] = useState({
-        date: '',
-        duration: '',
+        name: '',
+        description: '',
+        from_location: '',
+        to_location: '',
+        transport_type: '',
         distance: '',
-        rating: '',
+        time: '',
     });
 
     const navigate = useNavigate();
@@ -28,10 +31,10 @@ const CreateTour = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:4000/tourlogs', formData);
+            await axios.post('http://localhost:8080/tour', formData);
             navigate('/');
         } catch (error) {
-            console.error('Fehler beim Erstellen der Tour:', error);
+            console.error('Error creating tour:', error);
         }
     };
 
@@ -48,37 +51,37 @@ const CreateTour = () => {
                             name="name"
                             label="Name"
                             variant="outlined"
-                            value={formData.date}
+                            value={formData.name}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="tour_desc"
+                            name="description"
                             label="Tour Description"
                             variant="outlined"
-                            value={formData.duration}
+                            value={formData.description}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="from"
+                            name="from_location"
                             label="From"
                             variant="outlined"
-                            value={formData.distance}
+                            value={formData.from_location}
                             onChange={handleChange}
                         />
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
                             fullWidth
-                            name="to"
+                            name="to_location"
                             label="To"
                             variant="outlined"
-                            value={formData.rating}
+                            value={formData.to_location}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -88,7 +91,7 @@ const CreateTour = () => {
                             name="transport_type"
                             label="Transport Type"
                             variant="outlined"
-                            value={formData.rating}
+                            value={formData.transport_type}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -98,7 +101,7 @@ const CreateTour = () => {
                             name="distance"
                             label="Tour Distance"
                             variant="outlined"
-                            value={formData.rating}
+                            value={formData.distance}
                             onChange={handleChange}
                         />
                     </Grid>
@@ -108,7 +111,7 @@ const CreateTour = () => {
                             name="time"
                             label="Estimated Time"
                             variant="outlined"
-                            value={formData.rating}
+                            value={formData.time}
                             onChange={handleChange}
                         />
                     </Grid>
