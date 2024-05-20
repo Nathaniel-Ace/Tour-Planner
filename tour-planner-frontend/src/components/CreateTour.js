@@ -28,11 +28,32 @@ const CreateTour = () => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
+    const searchAddress = async (address) => {
+        try {
+            const response = await axios.get(`http://localhost:8080/searchAddress?text=${address}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error searching address:', error);
+            return null;
+        }
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('http://localhost:8080/tour', formData);
-            navigate('/');
+            const fromCoordinates = await searchAddress(formData.from_location);
+            const toCoordinates = await searchAddress(formData.to_location);
+            if (fromCoordinates && toCoordinates) {
+                const data = {
+                    ...formData,
+                    from_location: fromCoordinates,
+                    to_location: toCoordinates
+                };
+                await axios.post('http://localhost:8080/tour', data);
+                navigate('/');
+            } else {
+                console.error('Error searching address');
+            }
         } catch (error) {
             console.error('Error creating tour:', error);
         }
