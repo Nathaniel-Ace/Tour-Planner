@@ -19,6 +19,8 @@ const CreateTour = () => {
         transport_type: '',
         distance: '',
         time: '',
+        startCoordinates: '',
+        endCoordinates: '',
     });
 
     const navigate = useNavigate();
@@ -46,8 +48,8 @@ const CreateTour = () => {
             if (fromCoordinates && toCoordinates) {
                 const data = {
                     ...formData,
-                    from_location: fromCoordinates,
-                    to_location: toCoordinates
+                    startCoordinates: fromCoordinates,
+                    endCoordinates: toCoordinates
                 };
                 await axios.post('http://localhost:8080/tour', data);
                 navigate('/');

@@ -64,7 +64,7 @@ const TourPlanner = () => {
     useEffect(() => {
         const fetchTourLogs = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/tourlogs');
+                const response = await axios.get('http://localhost:8080/tour');
                 setTourLogs(response.data);
             } catch (error) {
                 console.error('Fehler beim Laden der Tour Logs:', error);
@@ -77,7 +77,7 @@ const TourPlanner = () => {
     return (
         <div className="TourPlanner">
             <Typography variant="h4" gutterBottom className="TourPlanner-logs">
-                Tour Logs
+                Tours
             </Typography>
             <Button
                 variant="contained"
@@ -91,20 +91,20 @@ const TourPlanner = () => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Date</TableCell>
-                        <TableCell>Duration</TableCell>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Start</TableCell>
+                        <TableCell>Destination</TableCell>
                         <TableCell>Distance</TableCell>
-                        <TableCell>Rating</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {tourLogs.length > 0 ? (
                         tourLogs.map((log, index) => (
                             <TableRow key={index}>
-                                <TableCell>{log.date}</TableCell>
-                                <TableCell>{log.duration}</TableCell>
+                                <TableCell>{log.name}</TableCell>
+                                <TableCell>{log.from_location}</TableCell>
+                                <TableCell>{log.to_location}</TableCell>
                                 <TableCell>{log.distance}</TableCell>
-                                <TableCell>{log.rating}</TableCell>
                             </TableRow>
                         ))
                     ) : (

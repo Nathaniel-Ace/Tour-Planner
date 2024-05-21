@@ -19,6 +19,8 @@ public class TourDto {
         private String transport_type;
         private float distance;
         private int time;
-        private String route_info;
+        private String startCoordinates;
+        private String endCoordinates;
+//        private String route_info;
 
 }
