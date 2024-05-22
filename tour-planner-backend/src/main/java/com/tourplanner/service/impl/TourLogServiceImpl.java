@@ -41,4 +41,17 @@ public class TourLogServiceImpl implements TourLogService {
         return tourLogMapper.mapToDto(tourLogRepository.findAll());
     }
 
+    @Override
+    public void deleteTourLog(Long id) {
+        tourLogRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateTourLog(Long id, TourLogDto tourLogDto) {
+        TourLogEntity entity = tourLogRepository.findById(id).orElseThrow(() -> new RuntimeException("TourLog not found"));
+        TourLogEntity updatedEntity = tourLogMapper.mapToEntity(tourLogDto);
+        updatedEntity.setTour_log_id(entity.getTour_log_id());
+        tourLogRepository.save(updatedEntity);
+    }
+
 }

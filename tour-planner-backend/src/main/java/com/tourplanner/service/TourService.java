@@ -9,5 +9,7 @@ public interface TourService {
     void saveNewTour(TourDto tourDto);
     List<TourDto> getAllTours();
     List<TourDto> getTourByName(String name);
+    void deleteTour(Long id);
+    void updateTour(Long id, TourDto tourDto);
 
 }

@@ -24,10 +24,19 @@ public class TourLogApi {
         return tourLogService.getTourLogsByTourId(tourId);
     }
 
-
     @PostMapping
     public void insertNewTourLog(@RequestBody TourLogDto tourLog) {
         tourLogService.saveNewTourLog(tourLog);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteTourLog(@PathVariable Long id) {
+        tourLogService.deleteTourLog(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateTourLog(@PathVariable Long id, @RequestBody TourLogDto tourLogDto) {
+        tourLogService.updateTourLog(id, tourLogDto);
     }
 
 }

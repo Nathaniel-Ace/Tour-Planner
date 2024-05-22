@@ -12,4 +12,8 @@ public interface TourLogService {
 
     List<TourLogDto> getAllTourLogs();
 
+    void deleteTourLog(Long id);
+
+    void updateTourLog(Long id, TourLogDto tourLogDto);
+
 }

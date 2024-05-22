@@ -30,5 +30,15 @@ public class TourApi {
         tourService.saveNewTour(tour);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteTour(@PathVariable Long id) {
+        tourService.deleteTour(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateTour(@PathVariable Long id, @RequestBody TourDto tourDto) {
+        tourService.updateTour(id, tourDto);
+    }
+
 
 }
