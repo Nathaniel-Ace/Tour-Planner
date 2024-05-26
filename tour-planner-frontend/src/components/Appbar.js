@@ -15,6 +15,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {Link} from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = ['File', 'Edit', 'Options'];
@@ -66,7 +67,9 @@ function AppBarComponent(props) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, textAlign: 'left' }}
                     >
-                        Tour-Planner
+                        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            Tour-Planner
+                        </Link>
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
