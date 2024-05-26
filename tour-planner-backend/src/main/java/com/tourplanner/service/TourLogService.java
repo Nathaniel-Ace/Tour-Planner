@@ -16,4 +16,6 @@ public interface TourLogService {
 
     void updateTourLog(Long id, TourLogDto tourLogDto);
 
+    TourLogDto getLogById(Long id);
+
 }

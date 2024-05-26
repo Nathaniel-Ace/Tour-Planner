@@ -3,7 +3,7 @@ package com.tourplanner.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "TOURLOG")
@@ -20,8 +20,7 @@ public class TourLogEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "FK_tourID")
     private TourEntity tour;
-//WSas
-    private LocalDateTime dateTime;
+    private OffsetDateTime dateTime;
     private String comment;
     private String difficulty;
     private float totalDistance;

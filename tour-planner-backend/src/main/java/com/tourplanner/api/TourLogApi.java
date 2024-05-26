@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:3001", "http://localhost:3002"})
 @RestController
 @RequestMapping(path = "tourlog")
 public class TourLogApi {
@@ -22,6 +23,11 @@ public class TourLogApi {
     @GetMapping("/tour/{tourId}")
     public List<TourLogDto> getLogsByTour(@PathVariable Long tourId) {
         return tourLogService.getTourLogsByTourId(tourId);
+    }
+
+    @GetMapping("/{id}")
+    public TourLogDto getLogById(@PathVariable Long id) {
+        return tourLogService.getLogById(id);
     }
 
     @PostMapping

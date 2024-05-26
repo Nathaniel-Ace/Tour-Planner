@@ -7,7 +7,7 @@ import com.tourplanner.service.dtos.TourLogDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 @Component
 public class TourLogMapper extends AbstractMapper<TourLogEntity, TourLogDto>{
@@ -40,7 +40,7 @@ public class TourLogMapper extends AbstractMapper<TourLogEntity, TourLogDto>{
         return TourLogEntity.builder()
                 .tour_log_id(dto.getId())
                 .tour(tourEntity)
-                .dateTime(LocalDateTime.parse(dto.getDateTime()))
+                .dateTime(OffsetDateTime.parse(dto.getDateTime()))
                 .comment(dto.getComment())
                 .difficulty(dto.getDifficulty())
                 .totalDistance(dto.getTotalDistance())
