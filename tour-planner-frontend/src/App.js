@@ -6,6 +6,10 @@ import AppBarComponent from './components/Appbar';
 import TourPlanner from './components/TourPlanner';
 import CreateTour from './components/CreateTour';
 import ErrorBoundary from './components/ErrorBoundary';
+import TourDetail from "./components/TourDetail";
+import EditTour from "./components/EditTour";
+import CreateTourLog from "./components/CreateTourLog";
+import EditTourLog from "./components/EditTourLog";
 
 function App() {
     return (
@@ -16,6 +20,10 @@ function App() {
                     <Routes>
                         <Route path="/" element={<TourPlanner />} />
                         <Route path="/create-tour" element={<CreateTour />} />
+                        <Route path="/tour/:id" element={<TourDetail />} />
+                        <Route path="/edit-tour/:id" element={<EditTour />} />
+                        <Route path="/create-tourlogs/:id" element={<CreateTourLog />} />
+                        <Route path="/edit-tourlog/:id" element={<EditTourLog />} />
                     </Routes>
                 </ErrorBoundary>
             </div>
