@@ -5,7 +5,7 @@ import {
     TextField,
     Button,
     Grid,
-    Typography,
+    Typography, MenuItem, InputLabel, FormControl, Select,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -109,14 +109,19 @@ const CreateTour = () => {
                         />
                     </Grid>
                     <Grid item xs={12}>
-                        <TextField
-                            fullWidth
-                            name="transport_type"
-                            label="Transport Type"
-                            variant="outlined"
-                            value={formData.transport_type}
-                            onChange={handleChange}
-                        />
+                        <FormControl fullWidth variant="outlined">
+                            <InputLabel>Transport Type</InputLabel>
+                            <Select
+                                name="transport_type"
+                                value={formData.transport_type}
+                                onChange={handleChange}
+                                label="Transport Type"
+                            >
+                                <MenuItem value="Driving">Driving</MenuItem>
+                                <MenuItem value="Cycling">Cycling</MenuItem>
+                                <MenuItem value="Walking">Walking</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
