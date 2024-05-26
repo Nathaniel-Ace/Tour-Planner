@@ -62,7 +62,7 @@ const TourPlanner = () => {
     const [tourLogs, setTourLogs] = useState([]);
 
     useEffect(() => {
-        const fetchTourLogs = async () => {
+        const fetchTours = async () => {
             try {
                 const response = await axios.get('http://localhost:8080/tour');
                 setTourLogs(response.data);
@@ -71,12 +71,12 @@ const TourPlanner = () => {
             }
         };
 
-        fetchTourLogs();
+        fetchTours();
     }, []);
 
     return (
         <div className="TourPlanner">
-            <Typography variant="h4" gutterBottom className="TourPlanner-logs">
+            <Typography variant="h4" gutterBottom className="TourPlanner">
                 Tours
             </Typography>
             <Button
@@ -101,7 +101,9 @@ const TourPlanner = () => {
                     {tourLogs.length > 0 ? (
                         tourLogs.map((log, index) => (
                             <TableRow key={index}>
-                                <TableCell>{log.name}</TableCell>
+                                <TableCell>
+                                    <Link to={`/tour/${log.id}`}>{log.name}</Link>
+                                </TableCell>
                                 <TableCell>{log.from_location}</TableCell>
                                 <TableCell>{log.to_location}</TableCell>
                                 <TableCell>{log.distance}</TableCell>
@@ -110,7 +112,7 @@ const TourPlanner = () => {
                     ) : (
                         <TableRow>
                             <TableCell colSpan={4} align="center">
-                                Keine Tour Logs vorhanden
+                                Keine Tours vorhanden
                             </TableCell>
                         </TableRow>
                     )}
