@@ -31,6 +31,12 @@ public class TourServiceImpl implements TourService {
     }
 
     @Override
+    public TourDto getTourById(Long id) {
+        TourEntity entity = tourRepository.findById(id).orElseThrow(() -> new RuntimeException("Tour not found"));
+        return tourMapper.mapToDto(entity);
+    }
+
+    @Override
     public List<TourDto> getTourByName(String name) {
         return tourMapper.mapToDto(tourRepository.findByNameIgnoreCase(name));
     }

@@ -7,6 +7,7 @@ import java.util.List;
 public interface TourService {
 
     void saveNewTour(TourDto tourDto);
+    TourDto getTourById(Long id);
     List<TourDto> getAllTours();
     List<TourDto> getTourByName(String name);
     void deleteTour(Long id);
