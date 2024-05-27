@@ -1,14 +1,14 @@
-// components/CreateTour.js
 import React, { useState } from 'react';
 import {
     Container,
     TextField,
     Button,
     Grid,
-    Typography, MenuItem, InputLabel, FormControl, Select,
+    Typography, MenuItem, InputLabel, FormControl, Select, List, ListItem
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import debounce from 'lodash.debounce';
 
 const CreateTour = () => {
     const [formData, setFormData] = useState({
@@ -23,11 +23,57 @@ const CreateTour = () => {
         endCoordinates: '',
     });
 
+    const [fromSuggestions, setFromSuggestions] = useState([]);
+    const [toSuggestions, setToSuggestions] = useState([]);
+
     const navigate = useNavigate();
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
+
+        if (name === 'from_location') {
+            fetchFromSuggestions(value);
+        } else if (name === 'to_location') {
+            fetchToSuggestions(value);
+        }
+    };
+
+    const fetchFromSuggestions = debounce(async (query) => {
+        if (query.length < 3) {
+            setFromSuggestions([]);
+            return;
+        }
+
+        try {
+            const response = await axios.get(`http://localhost:8080/autocomplete?text=${query}`);
+            setFromSuggestions(response.data);
+        } catch (error) {
+            console.error('Error fetching from location suggestions:', error);
+        }
+    }, 300);
+
+    const fetchToSuggestions = debounce(async (query) => {
+        if (query.length < 3) {
+            setToSuggestions([]);
+            return;
+        }
+
+        try {
+            const response = await axios.get(`http://localhost:8080/autocomplete?text=${query}`);
+            setToSuggestions(response.data);
+        } catch (error) {
+            console.error('Error fetching to location suggestions:', error);
+        }
+    }, 300);
+
+    const handleSuggestionClick = (field, suggestion) => {
+        setFormData((prevData) => ({ ...prevData, [field]: suggestion }));
+        if (field === 'from_location') {
+            setFromSuggestions([]);
+        } else {
+            setToSuggestions([]);
+        }
     };
 
     const searchAddress = async (address) => {
@@ -97,6 +143,13 @@ const CreateTour = () => {
                             value={formData.from_location}
                             onChange={handleChange}
                         />
+                        <List>
+                            {fromSuggestions.map((suggestion, index) => (
+                                <ListItem button key={index} onClick={() => handleSuggestionClick('from_location', suggestion)}>
+                                    {suggestion}
+                                </ListItem>
+                            ))}
+                        </List>
                     </Grid>
                     <Grid item xs={12}>
                         <TextField
@@ -107,6 +160,13 @@ const CreateTour = () => {
                             value={formData.to_location}
                             onChange={handleChange}
                         />
+                        <List>
+                            {toSuggestions.map((suggestion, index) => (
+                                <ListItem button key={index} onClick={() => handleSuggestionClick('to_location', suggestion)}>
+                                    {suggestion}
+                                </ListItem>
+                            ))}
+                        </List>
                     </Grid>
                     <Grid item xs={12}>
                         <FormControl fullWidth variant="outlined">
@@ -117,9 +177,9 @@ const CreateTour = () => {
                                 onChange={handleChange}
                                 label="Transport Type"
                             >
-                                <MenuItem value="Driving">Driving</MenuItem>
-                                <MenuItem value="Cycling">Cycling</MenuItem>
-                                <MenuItem value="Walking">Walking</MenuItem>
+                                <MenuItem value="driving-car">Driving</MenuItem>
+                                <MenuItem value="cycling-regular">Cycling</MenuItem>
+                                <MenuItem value="foot-walking">Walking</MenuItem>
                             </Select>
                         </FormControl>
                     </Grid>
