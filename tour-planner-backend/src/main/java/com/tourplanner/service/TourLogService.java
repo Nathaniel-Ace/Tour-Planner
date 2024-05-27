@@ -18,4 +18,6 @@ public interface TourLogService {
 
     TourLogDto getLogById(Long id);
 
+    void deleteByTour(Long tourId);
+
 }

@@ -1,5 +1,6 @@
 package com.tourplanner.api;
 
+import com.tourplanner.service.TourLogService;
 import com.tourplanner.service.TourService;
 import com.tourplanner.service.dtos.TourDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ public class TourApi {
 
     @Autowired
     private TourService tourService;
+
+    @Autowired
+    private TourLogService tourLogService;
 
     @GetMapping
     public List<TourDto> getAllTours() {
@@ -37,7 +41,8 @@ public class TourApi {
 
     @DeleteMapping("/{id}")
     public void deleteTour(@PathVariable Long id) {
-        tourService.deleteTour(id);
+        tourLogService.deleteByTour(id); // Delete all tour logs associated with the tour
+        tourService.deleteTour(id); // Delete the tour
     }
 
     @PutMapping("/{id}")

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
     Typography,
     Card,
@@ -19,6 +19,7 @@ import {Delete, Edit} from "@mui/icons-material";
 
 const TourDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [tour, setTour] = useState(null);
     const [logs, setLogs] = useState([]);
 
@@ -45,6 +46,15 @@ const TourDetail = () => {
             setLogs(logs.filter(log => log.id !== logId)); // Update the logs state
         } catch (error) {
             console.error('Error deleting tour log:', error);
+        }
+    };
+
+    const handleDeleteTour = async () => {
+        try {
+            await axios.delete(`http://localhost:8080/tour/${id}`);
+            navigate('/'); // Navigate to the home page after deleting the tour
+        } catch (error) {
+            console.error('Error deleting tour:', error);
         }
     };
 
@@ -75,6 +85,14 @@ const TourDetail = () => {
                                         style={{ marginTop: '20px' }}
                                     >
                                         Edit Tour
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        color="secondary"
+                                        onClick={handleDeleteTour}
+                                        style={{ marginTop: '20px' }}
+                                    >
+                                        Delete Tour
                                     </Button>
                                 </CardContent>
                             </Card>
@@ -116,7 +134,7 @@ const TourDetail = () => {
                             {logs.map((log, index) => (
                                 <TableRow key={index}>
                                     <TableCell>
-                                        {log.dateTime ? new Date(log.dateTime).toISOString()/*.split('T')[0]*/ : 'N/A'}
+                                        {log.dateTime ? new Date(log.dateTime).toISOString().split('T')[0] : 'N/A'}
                                     </TableCell>
                                     <TableCell>{log.comment || 'N/A'}</TableCell>
                                     <TableCell>{log.totalDistance || 'N/A'}</TableCell>

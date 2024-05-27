@@ -13,5 +13,6 @@ public interface TourLogRepository extends JpaRepository<TourLogEntity, Long> {
     List<TourLogEntity> findByTour(TourEntity tour);
     Optional<TourLogEntity> findById(@NonNull Long id);
     void deleteById(@NonNull Long id);
+    void deleteByTour(TourEntity tour);
 
 }

@@ -9,6 +9,7 @@ import com.tourplanner.service.dtos.TourLogDto;
 import com.tourplanner.service.mapper.TourLogMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -58,6 +59,14 @@ public class TourLogServiceImpl implements TourLogService {
     public TourLogDto getLogById(Long id) {
         TourLogEntity entity = tourLogRepository.findById(id).orElseThrow(() -> new RuntimeException("TourLog not found"));
         return tourLogMapper.mapToDto(entity);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByTour(Long tourId) {
+        TourEntity tourEntity = tourRepository.findById(tourId)
+                .orElseThrow(() -> new RuntimeException("Tour not found with id " + tourId));
+        tourLogRepository.deleteByTour(tourEntity);
     }
 
 }
