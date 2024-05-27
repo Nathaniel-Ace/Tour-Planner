@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +14,7 @@ public class MapApiImpl implements MapApi {
 
     private static final String API_KEY = "5b3ce3597851110001cf6248eeafdff05740442d8d10be93cc3afdb4";
 
+    @Override
     public String searchAddress(String text) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(
@@ -24,11 +26,46 @@ public class MapApiImpl implements MapApi {
         return coordinate;
     }
 
-    public List<double[]> searchDirection(String start, String end) {
-        return null;
+    @Override
+    public List<double[]> searchDirection(String start, String end, String profile) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://api.openrouteservice.org/v2/directions/" + profile + "?api_key=" + API_KEY + "&start=" + start + "&end=" + end;
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        // Parse the response to extract the coordinates
+        String coordinatesString = Objects.requireNonNull(response.getBody()).substring(response.getBody().indexOf("[[") + 2, response.getBody().indexOf("]]") + 2);
+        String[] pairs = coordinatesString.replaceAll("[\\[\\]]", "").split(",");
+
+        List<double[]> coordinates = new ArrayList<>();
+        for (int i = 0; i < pairs.length; i += 2) {
+            double lon = Double.parseDouble(pairs[i]);
+            double lat = Double.parseDouble(pairs[i + 1]);
+            coordinates.add(new double[]{lat, lon});
+        }
+
+        return coordinates;
     }
 
-    public void getMap() {
+    @Override
+    public List<String> autocompleteAddress(String text) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://api.openrouteservice.org/geocode/autocomplete?api_key=" + API_KEY + "&text=" + text;
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+
+        // Parse the response to extract the suggestions
+        String responseBody = Objects.requireNonNull(response.getBody());
+        List<String> suggestions = new ArrayList<>();
+        int index = 0;
+
+        while ((index = responseBody.indexOf("\"label\":\"", index)) != -1) {
+            index += 9;
+            int endIndex = responseBody.indexOf("\"", index);
+            String suggestion = responseBody.substring(index, endIndex);
+            suggestions.add(suggestion);
+        }
+
+        return suggestions;
     }
+
 
 }
