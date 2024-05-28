@@ -24,7 +24,7 @@ public class PDFGenerator {
         templateEngine.setTemplateResolver(templateResolver);
 
         Context context = new Context();
-        context.setVariable("to", "Emre");
+        context.setVariable("to", "ace");
 
         return templateEngine.process("hello_world", context); // No need for the directory prefix here
     }
