@@ -71,10 +71,5 @@ public class TourDtoTest {
         assertEquals(time, tourDto.getTime());
     }
 
-    @Test
-    public void testRouteInfo() {
-        String routeInfo = "Test Route Info";
-        tourDto.setRoute_info(routeInfo);
-        assertEquals(routeInfo, tourDto.getRoute_info());
-    }
+
 }

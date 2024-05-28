@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class TourLogTest {
         // Create TourLogEntity objects
         tourLog1 = TourLogEntity.builder()
                 .tour(new TourEntity()) // replace with actual TourEntity
-                .dateTime(LocalDateTime.now())
+                .dateTime(OffsetDateTime.now())
                 .comment("Comment 1")
                 .difficulty("Easy")
                 .totalDistance(100.0f)
@@ -38,7 +38,7 @@ public class TourLogTest {
 
         tourLog2 = TourLogEntity.builder()
                 .tour(new TourEntity()) // replace with actual TourEntity
-                .dateTime(LocalDateTime.now())
+                .dateTime(OffsetDateTime.now())
                 .comment("Comment 2")
                 .difficulty("Hard")
                 .totalDistance(200.0f)
