@@ -1,4 +1,3 @@
-// components/TourPlanner.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -13,6 +12,7 @@ import {
     TableHead,
     TableRow,
     Button,
+    TextField,
 } from '@mui/material';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -60,6 +60,7 @@ const center = {
 
 const TourPlanner = () => {
     const [tourLogs, setTourLogs] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const fetchTours = async () => {
@@ -74,11 +75,33 @@ const TourPlanner = () => {
         fetchTours();
     }, []);
 
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    const filteredTourLogs = tourLogs.filter(log => {
+        const lowerCaseQuery = searchQuery.toLowerCase();
+        return (
+            log.name.toLowerCase().includes(lowerCaseQuery) ||
+            log.from_location.toLowerCase().includes(lowerCaseQuery) ||
+            log.to_location.toLowerCase().includes(lowerCaseQuery) ||
+            log.distance.toString().toLowerCase().includes(lowerCaseQuery)
+        );
+    });
+
     return (
         <div className="TourPlanner">
             <Typography variant="h4" gutterBottom className="TourPlanner">
                 Tours
             </Typography>
+            <TextField
+                label="Search Tours"
+                variant="outlined"
+                fullWidth
+                value={searchQuery}
+                onChange={handleSearchChange}
+                style={{ marginBottom: '20px' }}
+            />
             <Button
                 variant="contained"
                 color="primary"
@@ -98,8 +121,8 @@ const TourPlanner = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {tourLogs.length > 0 ? (
-                        tourLogs.map((log, index) => (
+                    {filteredTourLogs.length > 0 ? (
+                        filteredTourLogs.map((log, index) => (
                             <TableRow key={index}>
                                 <TableCell>
                                     <Link to={`/tour/${log.id}`}>{log.name}</Link>
