@@ -1,6 +1,6 @@
 package com.tourplanner.service.impl;
 
-import com.tourplanner.service.MapApi;
+import com.tourplanner.service.MapService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Component
-public class MapApiImpl implements MapApi {
+public class MapServiceImpl implements MapService {
 
     private static final String API_KEY = "5b3ce3597851110001cf6248eeafdff05740442d8d10be93cc3afdb4";
 

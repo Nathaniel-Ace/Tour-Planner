@@ -19,10 +19,12 @@ import { Delete, Edit } from "@mui/icons-material";
 import { MapContainer, TileLayer, Polyline, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import jsPDF from 'jspdf';
 
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+import autoTable from "jspdf-autotable";
 
 L.Icon.Default.mergeOptions({
     iconUrl,
@@ -118,14 +120,73 @@ const TourDetail = () => {
         }
     };
 
-    const formatTime = (minutes) => {
-        if (minutes < 60) {
-            return `${minutes} minutes`;
-        } else {
-            const hours = Math.floor(minutes / 60);
-            const remainingMinutes = minutes % 60;
-            return `${hours} hour${hours > 1 ? 's' : ''} ${remainingMinutes > 0 ? `and ${remainingMinutes} minute${remainingMinutes > 1 ? 's' : ''}` : ''}`;
+    const formatTime = (totalMinutes) => {
+        const hours = Math.floor(totalMinutes / 60);
+        const minutes = Math.round(totalMinutes % 60);
+        return hours > 0 ? `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}` : `${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    };
+
+    const handleDownloadPDF = (reportType) => {
+        const doc = new jsPDF();
+        if (reportType === 'tour-report') {
+            doc.setFontSize(20);
+            doc.text('Tour Report', 20, 20);
+
+            doc.setFontSize(12);
+            doc.text(`Name: ${tour.name}`, 20, 30);
+            doc.text(`Description: ${tour.description}`, 20, 40);
+            doc.text(`From: ${tour.from_location}`, 20, 50);
+            doc.text(`To: ${tour.to_location}`, 20, 60);
+            doc.text(`Transport Type: ${tour.transport_type}`, 20, 70);
+            doc.text(`Distance: ${distance} km`, 20, 80);
+            doc.text(`Estimated Time: ${time} minutes`, 20, 90);
+
+            doc.setFontSize(20);
+            doc.text('Tour Logs', 20, 110);
+
+            const headers = ['Date', 'Comment', 'Distance', 'Time', 'Rating', 'Difficulty'];
+            const data = logs.map((log) => ([
+                log.dateTime ? new Date(log.dateTime).toISOString().split('T')[0] : 'N/A',
+                log.comment || 'N/A',
+                log.totalDistance || 'N/A',
+                log.totalTime || 'N/A',
+                log.rating || 'N/A',
+                log.difficulty || 'N/A'
+            ]));
+
+            autoTable(doc, { startY: 120, head: [headers], body: data });
+
+        } else if (reportType === 'summarize-report') {
+            const totalDistance = logs.reduce((acc, log) => acc + (log.totalDistance || 0), 0);
+
+            // Calculate total time in minutes
+            const totalTime = logs.reduce((acc, log) => {
+                const [hours, minutes] = log.totalTime.split(':').map(Number);
+                return acc + hours * 60 + minutes;
+            }, 0);
+
+            const totalRating = logs.reduce((acc, log) => acc + (log.rating || 0), 0);
+
+            const averageDistance = (totalDistance / logs.length).toFixed(2);
+            const averageTime = (totalTime / logs.length).toFixed(2); // Now this is in minutes
+            const averageRating = (totalRating / logs.length).toFixed(2);
+
+            doc.setFontSize(20);
+            doc.text('Summarize Report', 20, 20);
+
+            doc.setFontSize(12);
+            doc.text(`Name: ${tour.name}`, 20, 30);
+            doc.text(`Description: ${tour.description}`, 20, 40);
+            doc.text(`From: ${tour.from_location}`, 20, 50);
+            doc.text(`To: ${tour.to_location}`, 20, 60);
+            doc.text(`Transport Type: ${tour.transport_type}`, 20, 70);
+
+            doc.text('Statistics', 20, 90);
+            doc.text(`Average Distance: ${averageDistance} km`, 20, 100);
+            doc.text(`Average Time: ${averageTime} minutes`, 20, 110);
+            doc.text(`Average Rating: ${averageRating}`, 20, 120);
         }
+        doc.save(`${tour.name}-${reportType}.pdf`);
     };
 
     return (
@@ -182,6 +243,14 @@ const TourDetail = () => {
                             </Card>
                         </Grid>
                     </Grid>
+                    <Box display="flex" justifyContent="center" marginTop={2}>
+                        <Button variant="contained" color="primary" onClick={() => handleDownloadPDF('tour-report')}>
+                            Download Tour Report PDF
+                        </Button>
+                        <Button variant="contained" color="primary" onClick={() => handleDownloadPDF('summarize-report')} style={{ marginLeft: '10px' }}>
+                            Download Summarize Report PDF
+                        </Button>
+                    </Box>
                     <Box display="flex" justifyContent="center" marginTop={2}>
                         <Button
                             variant="contained"

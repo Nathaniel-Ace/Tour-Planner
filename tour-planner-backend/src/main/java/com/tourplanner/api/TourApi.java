@@ -50,5 +50,4 @@ public class TourApi {
         tourService.updateTour(id, tourDto);
     }
 
-
 }

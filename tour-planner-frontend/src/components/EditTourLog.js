@@ -22,6 +22,11 @@ const EditTourLog = () => {
                 const response = await axios.get(`http://localhost:8080/tourlog/${id}`);
                 setFormData(response.data);
                 setTourId(response.data.tour); // Save the tour ID from the response data
+
+                // Split totalTime into hours and minutes
+                const [hours, minutes] = response.data.totalTime.split(':');
+                setTotalTimeHours(hours);
+                setTotalTimeMinutes(minutes);
             } catch (error) {
                 console.error('Error fetching tour log:', error);
             }
@@ -30,20 +35,29 @@ const EditTourLog = () => {
         fetchTourLog();
     }, [id]);
 
+    const [totalTimeHours, setTotalTimeHours] = useState('');
+    const [totalTimeMinutes, setTotalTimeMinutes] = useState('');
+
     const handleChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        });
+        const { name, value } = event.target;
+
+        if (name === 'totalTimeHours') {
+            setTotalTimeHours(value);
+        } else if (name === 'totalTimeMinutes') {
+            setTotalTimeMinutes(value);
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
+            const totalTime = `${totalTimeHours}:${totalTimeMinutes}`;
             // Set dateTime to current date and time
-            formData.dateTime = new Date().toISOString();
-            await axios.put(`http://localhost:8080/tourlog/${id}`, formData);
+            const updatedFormData = { ...formData, totalTime, dateTime: new Date().toISOString() };
+            await axios.put(`http://localhost:8080/tourlog/${id}`, updatedFormData);
         } catch (error) {
             console.error('Error updating tour log:', error);
         } finally {
@@ -78,13 +92,23 @@ const EditTourLog = () => {
                             onChange={handleChange}
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                         <TextField
                             fullWidth
-                            name="totalTime"
-                            label="Total Time"
+                            name="totalTimeHours"
+                            label="Total Time (Hours)"
                             variant="outlined"
-                            value={formData.totalTime}
+                            value={totalTimeHours}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            name="totalTimeMinutes"
+                            label="Total Time (Minutes)"
+                            variant="outlined"
+                            value={totalTimeMinutes}
                             onChange={handleChange}
                         />
                     </Grid>

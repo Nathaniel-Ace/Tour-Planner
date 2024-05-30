@@ -24,10 +24,19 @@ const CreateTourLog = () => {
     });
 
     const navigate = useNavigate();
+    const [totalTimeHours, setTotalTimeHours] = useState('');
+    const [totalTimeMinutes, setTotalTimeMinutes] = useState('');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
+
+        if (name === 'totalTimeHours') {
+            setTotalTimeHours(value);
+        } else if (name === 'totalTimeMinutes') {
+            setTotalTimeMinutes(value);
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
     const handleRatingChange = (event, newValue) => {
@@ -37,9 +46,10 @@ const CreateTourLog = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            const totalTime = `${totalTimeHours}:${totalTimeMinutes}`;
             // Set dateTime to current date and time
-            formData.dateTime = new Date().toISOString();
-            await axios.post('http://localhost:8080/tourlog', formData);
+            const updatedFormData = { ...formData, totalTime, dateTime: new Date().toISOString() };
+            await axios.post('http://localhost:8080/tourlog', updatedFormData);
             navigate(`/tour/${tourId}`);
         } catch (error) {
             console.error('Error creating tour log:', error);
@@ -73,13 +83,23 @@ const CreateTourLog = () => {
                             onChange={handleChange}
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                         <TextField
                             fullWidth
-                            name="totalTime"
-                            label="Total Time"
+                            name="totalTimeHours"
+                            label="Total Time (Hours)"
                             variant="outlined"
-                            value={formData.totalTime}
+                            value={formData.totalTimeHours}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth
+                            name="totalTimeMinutes"
+                            label="Total Time (Minutes)"
+                            variant="outlined"
+                            value={formData.totalTimeMinutes}
                             onChange={handleChange}
                         />
                     </Grid>
