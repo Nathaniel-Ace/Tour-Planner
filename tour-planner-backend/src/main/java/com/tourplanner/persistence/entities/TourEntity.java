@@ -24,10 +24,7 @@ public class TourEntity {
     private String from_location;
     private String to_location;
     private String transport_type;
-    private float distance;
-    private int time;
     private String startCoordinates;
     private String endCoordinates;
-//    private String route_info;
 
 }

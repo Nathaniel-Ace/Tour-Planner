@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import {
     Typography,
@@ -20,7 +20,6 @@ import { MapContainer, TileLayer, Polyline, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// Manually set up Leaflet's default icon
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
@@ -31,38 +30,80 @@ L.Icon.Default.mergeOptions({
     shadowUrl,
 });
 
+const MapComponent = React.memo(({ routeCoordinates, destination }) => (
+    <MapContainer center={routeCoordinates[0]} zoom={10} style={{ height: '100%', width: '100%' }}>
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <Polyline positions={routeCoordinates} color="blue" />
+        <Marker position={routeCoordinates[routeCoordinates.length - 1]}>
+            <Popup>{destination}</Popup>
+        </Marker>
+    </MapContainer>
+));
+
 const TourDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [tour, setTour] = useState(null);
     const [logs, setLogs] = useState([]);
     const [routeCoordinates, setRouteCoordinates] = useState([]);
+    const [distance, setDistance] = useState(null);
+    const [time, setTime] = useState(null);
+    const isMounted = useRef(false);
+
+    console.log('TourDetail rendered');
+
+    const fetchTourAndLogs = useCallback(async () => {
+        console.log('Fetching tour and logs');
+        try {
+            const tourResponse = await axios.get(`http://localhost:8080/tour/${id}`);
+            if (isMounted.current) setTour(tourResponse.data);
+
+            const logsResponse = await axios.get(`http://localhost:8080/tourlog/tour/${id}`);
+            console.log("Fetched tour logs:", logsResponse.data);
+            if (isMounted.current) setLogs(logsResponse.data);
+        } catch (error) {
+            console.error('Error fetching tour and logs:', error);
+        }
+    }, [id]);
+
+    const fetchRoute = useCallback(async (startCoordinates, endCoordinates, transportType) => {
+        console.log('Fetching route');
+        try {
+            const directionUrl = `http://localhost:8080/searchDirection?start=${startCoordinates}&end=${endCoordinates}&profile=${transportType}`;
+            console.log(`Making request to: ${directionUrl}`);
+
+            const directionsResponse = await axios.get(directionUrl);
+            const data = directionsResponse.data;
+            const coordinates = data.features[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+            if (isMounted.current) setRouteCoordinates(coordinates);
+
+            const distance = data.features[0].properties.segments[0].distance;
+            const duration = data.features[0].properties.segments[0].duration;
+            if (isMounted.current) {
+                setDistance((distance / 1000).toFixed(2)); // Convert to km
+                setTime(Math.round(duration / 60)); // Convert to minutes
+            }
+        } catch (error) {
+            console.error('Error fetching route:', error);
+        }
+    }, []);
 
     useEffect(() => {
-        const fetchTourAndLogs = async () => {
-            try {
-                const tourResponse = await axios.get(`http://localhost:8080/tour/${id}`);
-                setTour(tourResponse.data);
-
-                const logsResponse = await axios.get(`http://localhost:8080/tourlog/tour/${id}`);
-                console.log("Fetched tour logs:", logsResponse.data); // Debug log
-                setLogs(logsResponse.data);
-
-                const { startCoordinates, endCoordinates, transport_type } = tourResponse.data;
-                const directionsResponse = await axios.get(`http://localhost:8080/searchDirection?start=${startCoordinates}&end=${endCoordinates}&profile=${transport_type}`);
-                setRouteCoordinates(directionsResponse.data);
-            } catch (error) {
-                console.error('Error fetching tour and logs:', error);
-            }
-        };
-
+        isMounted.current = true;
         fetchTourAndLogs();
-    }, [id]);
+        return () => { isMounted.current = false };
+    }, [fetchTourAndLogs]);
+
+    useEffect(() => {
+        if (tour && tour.startCoordinates && tour.endCoordinates && tour.transport_type) {
+            fetchRoute(tour.startCoordinates, tour.endCoordinates, tour.transport_type);
+        }
+    }, [tour, fetchRoute]);
 
     const handleDelete = async (logId) => {
         try {
             await axios.delete(`http://localhost:8080/tourlog/${logId}`);
-            setLogs(logs.filter(log => log.id !== logId)); // Update the logs state
+            setLogs(logs.filter(log => log.id !== logId));
         } catch (error) {
             console.error('Error deleting tour log:', error);
         }
@@ -71,9 +112,19 @@ const TourDetail = () => {
     const handleDeleteTour = async () => {
         try {
             await axios.delete(`http://localhost:8080/tour/${id}`);
-            navigate('/'); // Navigate to the home page after deleting the tour
+            navigate('/');
         } catch (error) {
             console.error('Error deleting tour:', error);
+        }
+    };
+
+    const formatTime = (minutes) => {
+        if (minutes < 60) {
+            return `${minutes} minutes`;
+        } else {
+            const hours = Math.floor(minutes / 60);
+            const remainingMinutes = minutes % 60;
+            return `${hours} hour${hours > 1 ? 's' : ''} ${remainingMinutes > 0 ? `and ${remainingMinutes} minute${remainingMinutes > 1 ? 's' : ''}` : ''}`;
         }
     };
 
@@ -97,8 +148,8 @@ const TourDetail = () => {
                                         <Typography>Start: {tour.from_location}</Typography>
                                         <Typography>Destination: {tour.to_location}</Typography>
                                         <Typography>Transport Type: {tour.transport_type}</Typography>
-                                        <Typography>Distance: {tour.distance}</Typography>
-                                        <Typography>Time: {tour.time}</Typography>
+                                        <Typography>Distance: {distance ? `${distance} km` : 'Calculating...'}</Typography>
+                                        <Typography>Time: {time ? formatTime(time) : 'Calculating...'}</Typography>
                                     </Box>
                                 </CardContent>
                                 <Box style={{ padding: '16px', textAlign: 'center' }}>
@@ -125,17 +176,7 @@ const TourDetail = () => {
                             <Card style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                                 <CardContent style={{ flexGrow: 1, padding: 0 }}>
                                     {routeCoordinates.length > 0 && (
-                                        <MapContainer center={routeCoordinates[0]} zoom={10} style={{ height: '100%', width: '100%' }}>
-                                            <TileLayer
-                                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                            />
-                                            <Polyline positions={routeCoordinates} color="blue" />
-                                            <Marker position={routeCoordinates[routeCoordinates.length - 1]}>
-                                                <Popup>
-                                                    {tour.to_location}
-                                                </Popup>
-                                            </Marker>
-                                        </MapContainer>
+                                        <MapComponent routeCoordinates={routeCoordinates} destination={tour.to_location} />
                                     )}
                                 </CardContent>
                             </Card>
@@ -146,7 +187,7 @@ const TourDetail = () => {
                             variant="contained"
                             color="primary"
                             component={Link}
-                            to={`/create-tourlogs/${id}`} // update this to the correct route
+                            to={`/create-tourlogs/${id}`}
                         >
                             Create Tour Log
                         </Button>
