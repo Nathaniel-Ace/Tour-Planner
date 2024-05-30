@@ -27,23 +27,13 @@ public class MapApiImpl implements MapApi {
     }
 
     @Override
-    public List<double[]> searchDirection(String start, String end, String profile) {
+    public String searchDirection(String start, String end, String profile) {
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://api.openrouteservice.org/v2/directions/" + profile + "?api_key=" + API_KEY + "&start=" + start + "&end=" + end;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
-        // Parse the response to extract the coordinates
-        String coordinatesString = Objects.requireNonNull(response.getBody()).substring(response.getBody().indexOf("[[") + 2, response.getBody().indexOf("]]") + 2);
-        String[] pairs = coordinatesString.replaceAll("[\\[\\]]", "").split(",");
-
-        List<double[]> coordinates = new ArrayList<>();
-        for (int i = 0; i < pairs.length; i += 2) {
-            double lon = Double.parseDouble(pairs[i]);
-            double lat = Double.parseDouble(pairs[i + 1]);
-            coordinates.add(new double[]{lat, lon});
-        }
-
-        return coordinates;
+        // Return the entire response body
+        return response.getBody();
     }
 
     @Override
@@ -66,6 +56,4 @@ public class MapApiImpl implements MapApi {
 
         return suggestions;
     }
-
-
 }

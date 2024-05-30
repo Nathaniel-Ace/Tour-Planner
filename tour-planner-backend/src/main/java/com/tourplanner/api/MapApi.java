@@ -23,7 +23,7 @@ public class MapApi {
     }
 
     @GetMapping("/searchDirection")
-    public List<double[]> searchDirection(@RequestParam String start, @RequestParam String end, @RequestParam String profile) {
+    public String searchDirection(@RequestParam String start, @RequestParam String end, @RequestParam String profile) {
         return mapApi.searchDirection(start, end, profile);
     }
 
