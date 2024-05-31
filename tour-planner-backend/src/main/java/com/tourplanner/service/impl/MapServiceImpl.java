@@ -18,7 +18,7 @@ public class MapServiceImpl implements MapService {
     public String searchAddress(String text) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> response = restTemplate.getForEntity(
-                "https://api.openrouteservice.org/geocode/search?boundary.country=AT&api_key=" + API_KEY + "&text=" + text,
+                "https://api.openrouteservice.org/geocode/search?api_key=" + API_KEY + "&text=" + text,
                 String.class);
 
         String coordinate = Objects.requireNonNull(response.getBody()).substring(response.getBody().indexOf("coordinates") + 14, response.getBody().indexOf("properties") - 4);

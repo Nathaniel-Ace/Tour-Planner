@@ -4,7 +4,6 @@ import {
     Grid,
     Card,
     CardContent,
-    CardActions,
     Typography,
     Table,
     TableBody,
@@ -20,29 +19,29 @@ import axios from 'axios';
 
 const tours = [
     {
-        title: 'Wanderung im Wienerwald',
-        description: 'Erkunde die malerischen Wanderwege',
+        title: 'Hike through Wienerwald',
+        description: 'Discover picturesque hiking trails',
         distance: '15 km',
-        time: '5 Stunden',
-        transport: 'Zu Fuß',
+        time: '4 hours',
+        transport: 'Walking',
         coordinates: { lat: 48.2082, lng: 16.3738 },
         backgroundImage: '/images/forest.png',
     },
     {
-        title: 'Bike Tour durch die Alpen',
-        description: 'Eine aufregende Fahrradtour',
+        title: 'Bike Tour through the Alps',
+        description: 'An exciting bike tour',
         distance: '50 km',
-        time: '3 Stunden',
-        transport: 'Fahrrad',
+        time: '3 hours',
+        transport: 'Bike',
         coordinates: { lat: 47.2692, lng: 11.4041 },
         backgroundImage: '/images/mountains.png',
     },
     {
-        title: 'Städtetrip nach Berlin',
-        description: 'Entdecke die kulturellen Highlights',
-        distance: '0 km',
-        time: '2 Tage',
-        transport: 'Öffentliche Verkehrsmittel',
+        title: 'City trip to Berlin',
+        description: 'Discover cultural highlights',
+        distance: '690 km',
+        time: '7 hours 30 min',
+        transport: 'By Car',
         coordinates: { lat: 52.5200, lng: 13.4050 },
         backgroundImage: '/images/berlin.png',
     },
@@ -82,12 +81,13 @@ const TourPlanner = () => {
     const filteredTourLogs = tourLogs.filter(log => {
         const lowerCaseQuery = searchQuery.toLowerCase();
         return (
-            log.name.toLowerCase().includes(lowerCaseQuery) ||
-            log.from_location.toLowerCase().includes(lowerCaseQuery) ||
-            log.to_location.toLowerCase().includes(lowerCaseQuery) ||
-            log.distance.toString().toLowerCase().includes(lowerCaseQuery)
+            (log.name && log.name.toLowerCase().includes(lowerCaseQuery)) ||
+            (log.from_location && log.from_location.toLowerCase().includes(lowerCaseQuery)) ||
+            (log.to_location && log.to_location.toLowerCase().includes(lowerCaseQuery)) ||
+            (log.distance && log.distance.toString().toLowerCase().includes(lowerCaseQuery))
         );
     });
+
 
     return (
         <div className="TourPlanner">
@@ -165,19 +165,10 @@ const TourPlanner = () => {
                             <CardContent style={{ background: 'rgba(0, 0, 0, 0.5)', borderRadius: '5px' }}>
                                 <Typography variant="h6" style={{ color: 'white' }}>{tour.title}</Typography>
                                 <Typography variant="body2" style={{ color: 'white' }}>{tour.description}</Typography>
-                                <Typography variant="body2" style={{ color: 'white' }}>Entfernung: {tour.distance}</Typography>
-                                <Typography variant="body2" style={{ color: 'white' }}>Zeit: {tour.time}</Typography>
+                                <Typography variant="body2" style={{ color: 'white' }}>Distance: {tour.distance}</Typography>
+                                <Typography variant="body2" style={{ color: 'white' }}>Time: {tour.time}</Typography>
                                 <Typography variant="body2" style={{ color: 'white' }}>Transport: {tour.transport}</Typography>
                             </CardContent>
-                            <CardActions style={{ justifyContent: 'center' }}>
-                                <Button
-                                    size="small"
-                                    style={{ background: 'white', color: 'black', borderRadius: '5px' }}
-                                    onClick={() => alert('Details zu ' + tour.title)}
-                                >
-                                    Details
-                                </Button>
-                            </CardActions>
                         </Card>
                     </Grid>
                 ))}
