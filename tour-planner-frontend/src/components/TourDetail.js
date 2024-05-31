@@ -128,6 +128,7 @@ const TourDetail = () => {
 
     const handleDownloadPDF = (reportType) => {
         const doc = new jsPDF();
+
         if (reportType === 'tour-report') {
             doc.setFontSize(20);
             doc.text('Tour Report', 20, 20);
@@ -168,7 +169,8 @@ const TourDetail = () => {
             const totalRating = logs.reduce((acc, log) => acc + (log.rating || 0), 0);
 
             const averageDistance = (totalDistance / logs.length).toFixed(2);
-            const averageTime = (totalTime / logs.length).toFixed(2); // Now this is in minutes
+            const averageTimeInMinutes = (totalTime / logs.length).toFixed(2); // Now this is in minutes
+            const averageTimeFormatted = formatTime(averageTimeInMinutes);
             const averageRating = (totalRating / logs.length).toFixed(2);
 
             doc.setFontSize(20);
@@ -181,13 +183,17 @@ const TourDetail = () => {
             doc.text(`To: ${tour.to_location}`, 20, 60);
             doc.text(`Transport Type: ${tour.transport_type}`, 20, 70);
 
+            doc.setFontSize(16);
             doc.text('Statistics', 20, 90);
+
+            doc.setFontSize(12);
             doc.text(`Average Distance: ${averageDistance} km`, 20, 100);
-            doc.text(`Average Time: ${averageTime} minutes`, 20, 110);
+            doc.text(`Average Time: ${averageTimeFormatted}`, 20, 110);
             doc.text(`Average Rating: ${averageRating}`, 20, 120);
         }
         doc.save(`${tour.name}-${reportType}.pdf`);
     };
+
 
     return (
         <div className="TourDetail">
