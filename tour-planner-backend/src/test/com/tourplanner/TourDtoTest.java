@@ -57,19 +57,7 @@ public class TourDtoTest {
         assertEquals(transportType, tourDto.getTransport_type());
     }
 
-    @Test
-    public void testDistance() {
-        int distance = 100;
-        tourDto.setDistance(distance);
-        assertEquals(distance, tourDto.getDistance());
-    }
 
-    @Test
-    public void testTime() {
-        int time = 2;
-        tourDto.setTime(time);
-        assertEquals(time, tourDto.getTime());
-    }
 
 
 }

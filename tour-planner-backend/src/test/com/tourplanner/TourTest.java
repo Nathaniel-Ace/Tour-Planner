@@ -30,9 +30,6 @@ public class TourTest {
                 .from_location("Location 1")
                 .to_location("Location 2")
                 .transport_type("Bus")
-                .distance(100)
-                .time(2)
-//                .route_info("Route 1")
                 .build();
 
         tour2 = TourEntity.builder()
@@ -41,9 +38,6 @@ public class TourTest {
                 .from_location("Location 3")
                 .to_location("Location 4")
                 .transport_type("Train")
-                .distance(200)
-                .time(3)
-//                .route_info("Route 2")
                 .build();
     }
 
