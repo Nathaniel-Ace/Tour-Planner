@@ -140,7 +140,8 @@ const TourDetail = () => {
             doc.text(`To: ${tour.to_location}`, 20, 60);
             doc.text(`Transport Type: ${tour.transport_type}`, 20, 70);
             doc.text(`Distance: ${distance} km`, 20, 80);
-            doc.text(`Estimated Time: ${time} minutes`, 20, 90);
+            const formattedTime = formatTime(time); // Convert time to formatted string
+            doc.text(`Estimated Time: ${formattedTime}`, 20, 90); // Use formattedTime here
 
             doc.setFontSize(20);
             doc.text('Tour Logs', 20, 110);
