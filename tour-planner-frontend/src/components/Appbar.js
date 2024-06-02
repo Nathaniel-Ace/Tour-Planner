@@ -7,19 +7,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import {Link} from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ['File', 'Edit', 'Options'];
-
 function AppBarComponent(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -34,15 +27,7 @@ function AppBarComponent(props) {
                 Tour-Planner
             </Typography>
             <Divider />
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'left' }}>
-                            <ListItemText primary={item} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+
         </Box>
     );
 
@@ -71,13 +56,7 @@ function AppBarComponent(props) {
                             Tour-Planner
                         </Link>
                     </Typography>
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff', m: 1 }}>
-                                {item}
-                            </Button>
-                        ))}
-                    </Box>
+
                 </Toolbar>
             </AppBar>
             <nav>

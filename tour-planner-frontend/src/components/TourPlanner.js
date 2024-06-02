@@ -117,7 +117,6 @@ const TourPlanner = () => {
                         <TableCell>Name</TableCell>
                         <TableCell>Start</TableCell>
                         <TableCell>Destination</TableCell>
-                        <TableCell>Distance</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -129,7 +128,6 @@ const TourPlanner = () => {
                                 </TableCell>
                                 <TableCell>{log.from_location}</TableCell>
                                 <TableCell>{log.to_location}</TableCell>
-                                <TableCell>{log.distance}</TableCell>
                             </TableRow>
                         ))
                     ) : (
