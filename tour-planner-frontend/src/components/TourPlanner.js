@@ -141,7 +141,7 @@ const TourPlanner = () => {
             </Table>
 
             <Typography variant="h5" gutterBottom style={{ marginTop: '40px' }}>
-                Vorgeschlagene Touren
+                Recommended Tours
             </Typography>
             <Grid container spacing={2} style={{ marginBottom: '20px' }}>
                 {tours.map((tour, index) => (
@@ -173,7 +173,7 @@ const TourPlanner = () => {
             </Grid>
 
             <Typography variant="h5" gutterBottom style={{ marginTop: '20px' }}>
-                Karte
+                Map
             </Typography>
             <MapContainer center={center} zoom={10} style={containerStyle}>
                 <TileLayer
