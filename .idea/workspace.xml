@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4ce1b985-3d5a-4e46-a8fc-e95612b179ea" name="Changes" comment="pom file moved to backend and pom_parent created">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-backend/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="HTML File" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Nathaniel-Ace&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nathaniel-Ace/Tour-Planner.git&quot;,
+    &quot;accountId&quot;: &quot;5a7b5f77-f3f8-43c6-be24-22df023c483a&quot;
+  },
+  &quot;editorReviewEnabled&quot;: false
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2drHeRqZOrSiVSuhFCumWPfyR7m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MapApiImpl.executor": "Run",
+    "Application.PDFGenerator.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.JpaDemoApplicationTests.executor": "Run",
+    "JUnit.JpaDemoApplicationTests.test_TourEntity.executor": "Run",
+    "JUnit.PersonDtoTest.executor": "Run",
+    "JUnit.TourDtoTest.executor": "Run",
+    "JUnit.TourLogDtoTest.executor": "Run",
+    "JUnit.TourLogTest.executor": "Run",
+    "JUnit.TourTest (1).executor": "Run",
+    "JUnit.TourTest.executor": "Run",
+    "JUnit.TourTest.test_TourEntity.executor": "Run",
+    "JUnit.jpademo in jpa_demo.executor": "Run",
+    "JUnit.tourplanner in TourPlanner_Panganiban_Koc (1).executor": "Run",
+    "JUnit.tourplanner in TourPlanner_Panganiban_Koc.executor": "Run",
+    "JavaScript Debug.hello_world.html.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.JpaDemoApplication (1).executor": "Run",
+    "Spring Boot.JpaDemoApplication.executor": "Run",
+    "Spring Boot.TourPlannerApplication (1).executor": "Run",
+    "Spring Boot.TourPlannerApplication.executor": "Run",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/natha/OneDrive/Desktop/FHTW/4. Semester/Software Engineering 2/project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\natha\OneDrive\Desktop\FHTW\4. Semester\Software Engineering 2\project\tour-planner-backend" />
+      <recent name="C:\Users\natha\OneDrive\Desktop\FHTW\4. Semester\Software Engineering 2\project" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TourPlannerApplication">
+    <configuration name="JpaDemoApplicationTests.test_TourEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jpa_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.jpademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.jpademo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.jpademo.JpaDemoApplicationTests" />
+      <option name="METHOD_NAME" value="test_TourEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourLogTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jpa_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.jpademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.jpademo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.jpademo.TourLogTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jpa_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.jpademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.jpademo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.jpademo.TourTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourTest.test_TourEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jpa_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.jpademo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.jpademo" />
+      <option name="MAIN_CLASS_NAME" value="com.example.jpademo.TourTest" />
+      <option name="METHOD_NAME" value="test_TourEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tourplanner in TourPlanner_Panganiban_Koc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TourPlanner_Panganiban_Koc" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/tour-planner-backend/src/test/com/tourplanner" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JpaDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="TourPlanner_Panganiban_Koc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.jpademo.JpaDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TourPlannerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="TourPlanner_Panganiban_Koc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.tourplanner.TourPlannerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.JpaDemoApplicationTests.test_TourEntity" />
+      <item itemvalue="JUnit.TourLogTest" />
+      <item itemvalue="JUnit.TourTest" />
+      <item itemvalue="JUnit.TourTest.test_TourEntity" />
+      <item itemvalue="JUnit.tourplanner in TourPlanner_Panganiban_Koc" />
+      <item itemvalue="Spring Boot.JpaDemoApplication" />
+      <item itemvalue="Spring Boot.TourPlannerApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.tourplanner in TourPlanner_Panganiban_Koc" />
+        <item itemvalue="JUnit.TourTest.test_TourEntity" />
+        <item itemvalue="JUnit.TourTest" />
+        <item itemvalue="JUnit.TourLogTest" />
+        <item itemvalue="JUnit.JpaDemoApplicationTests.test_TourEntity" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ce1b985-3d5a-4e46-a8fc-e95612b179ea" name="Changes" comment="" />
+      <created>1710759372086</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710759372086</updated>
+      <workItem from="1710759374347" duration="444000" />
+      <workItem from="1710759933184" duration="429000" />
+      <workItem from="1711030314505" duration="460000" />
+      <workItem from="1711124644172" duration="48000" />
+      <workItem from="1711185757447" duration="1112000" />
+      <workItem from="1711187029365" duration="70000" />
+      <workItem from="1711187154304" duration="1526000" />
+      <workItem from="1711188719575" duration="3793000" />
+      <workItem from="1711278643218" duration="730000" />
+      <workItem from="1711305669722" duration="238000" />
+      <workItem from="1711356515276" duration="12209000" />
+      <workItem from="1711369882042" duration="131000" />
+      <workItem from="1711701664063" duration="604000" />
+      <workItem from="1711702358967" duration="24000" />
+      <workItem from="1711702396920" duration="77000" />
+      <workItem from="1711702488172" duration="29000" />
+      <workItem from="1711795889208" duration="389000" />
+      <workItem from="1711985043717" duration="1503000" />
+      <workItem from="1711986636908" duration="37000" />
+      <workItem from="1711986777011" duration="44000" />
+      <workItem from="1712039410125" duration="39000" />
+      <workItem from="1712152683512" duration="1245000" />
+      <workItem from="1712154008062" duration="447000" />
+      <workItem from="1712154468650" duration="601000" />
+      <workItem from="1712230459744" duration="4987000" />
+      <workItem from="1712502224291" duration="471000" />
+      <workItem from="1712502783041" duration="74000" />
+      <workItem from="1714387943407" duration="1210000" />
+      <workItem from="1714389208002" duration="92000" />
+      <workItem from="1714389494771" duration="1421000" />
+      <workItem from="1715065708945" duration="3024000" />
+      <workItem from="1715761028258" duration="4705000" />
+      <workItem from="1715858995691" duration="1661000" />
+      <workItem from="1715860698455" duration="2824000" />
+      <workItem from="1715863742493" duration="253000" />
+      <workItem from="1715882562510" duration="3017000" />
+      <workItem from="1716107041229" duration="189000" />
+      <workItem from="1716107315021" duration="1542000" />
+      <workItem from="1716134406320" duration="2874000" />
+      <workItem from="1716190687913" duration="233000" />
+      <workItem from="1716190950160" duration="5059000" />
+      <workItem from="1716314115621" duration="2475000" />
+      <workItem from="1716363525413" duration="3909000" />
+      <workItem from="1716369484073" duration="514000" />
+      <workItem from="1716712418958" duration="1221000" />
+      <workItem from="1716713670456" duration="4885000" />
+      <workItem from="1716736371806" duration="17638000" />
+      <workItem from="1716796743382" duration="864000" />
+      <workItem from="1716797652845" duration="2175000" />
+      <workItem from="1716822404983" duration="8645000" />
+      <workItem from="1716881133717" duration="350000" />
+      <workItem from="1716892048031" duration="119000" />
+      <workItem from="1716892184879" duration="97000" />
+      <workItem from="1716893159657" duration="20000" />
+      <workItem from="1716896817031" duration="2080000" />
+      <workItem from="1716899764971" duration="14132000" />
+      <workItem from="1716921760497" duration="3488000" />
+      <workItem from="1716925763669" duration="92000" />
+      <workItem from="1716925882341" duration="3315000" />
+      <workItem from="1716980602267" duration="2132000" />
+      <workItem from="1716984448664" duration="3676000" />
+      <workItem from="1716988452191" duration="561000" />
+      <workItem from="1717059235113" duration="8393000" />
+      <workItem from="1717070220841" duration="6423000" />
+      <workItem from="1717076906353" duration="4733000" />
+      <workItem from="1717153184636" duration="159000" />
+      <workItem from="1717160889934" duration="1863000" />
+      <workItem from="1717258689235" duration="1067000" />
+      <workItem from="1717352557464" duration="1720000" />
+      <workItem from="1717356488143" duration="2295000" />
+      <workItem from="1718091636710" duration="189000" />
+      <workItem from="1718091922011" duration="2444000" />
+      <workItem from="1718094432963" duration="321000" />
+      <workItem from="1718094832290" duration="327000" />
+      <workItem from="1718095183104" duration="334000" />
+      <workItem from="1718095628702" duration="529000" />
+      <workItem from="1718096177677" duration="114000" />
+      <workItem from="1718096318072" duration="952000" />
+      <workItem from="1718097292773" duration="311000" />
+      <workItem from="1718097618466" duration="4540000" />
+      <workItem from="1718103878115" duration="1126000" />
+    </task>
+    <task id="LOCAL-00002" summary="connecting postgres database from docker container">
+      <option name="closed" value="true" />
+      <created>1711192180418</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711192180418</updated>
+    </task>
+    <task id="LOCAL-00003" summary="dependencies for postgres added">
+      <option name="closed" value="true" />
+      <created>1711192210431</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711192210431</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Tour backend implemented">
+      <option name="closed" value="true" />
+      <created>1711192374927</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711192374927</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Tour backend unversioned files">
+      <option name="closed" value="true" />
+      <created>1711279133425</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711279133425</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Tour Log backend">
+      <option name="closed" value="true" />
+      <created>1711367846637</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711367846637</updated>
+    </task>
+    <task id="LOCAL-00007" summary="test">
+      <option name="closed" value="true" />
+      <created>1711369000939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711369000939</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test">
+      <option name="closed" value="true" />
+      <created>1711369026523</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711369026523</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Unittests for Tour and TourLog">
+      <option name="closed" value="true" />
+      <created>1711796170880</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711796170880</updated>
+    </task>
+    <task id="LOCAL-00010" summary="README bearbeitet">
+      <option name="closed" value="true" />
+      <created>1711985750057</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711985750057</updated>
+    </task>
+    <task id="LOCAL-00011" summary="UML Diagramm added">
+      <option name="closed" value="true" />
+      <created>1711986433994</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711986433994</updated>
+    </task>
+    <task id="LOCAL-00012" summary="README bearbeitet">
+      <option name="closed" value="true" />
+      <created>1711986810792</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711986810792</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Postman-Collection added">
+      <option name="closed" value="true" />
+      <created>1712039436295</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1712039436295</updated>
+    </task>
+    <task id="LOCAL-00014" summary="mapToEntity in TourMapper and TourServiceImpl implemented">
+      <option name="closed" value="true" />
+      <created>1712231937747</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1712231937747</updated>
+    </task>
+    <task id="LOCAL-00015" summary="TourLogMapper edit">
+      <option name="closed" value="true" />
+      <created>1712236037779</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1712236037779</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Package name edit">
+      <option name="closed" value="true" />
+      <created>1712237217545</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1712237217545</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Name edit">
+      <option name="closed" value="true" />
+      <created>1712237353173</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1712237353173</updated>
+    </task>
+    <task id="LOCAL-00018" summary="dependencies changed in package.json">
+      <option name="closed" value="true" />
+      <created>1715068803146</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715068803146</updated>
+    </task>
+    <task id="LOCAL-00019" summary="pdf generator 1.0">
+      <option name="closed" value="true" />
+      <created>1715802702774</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715802702774</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Backend Ordner erstellt">
+      <option name="closed" value="true" />
+      <created>1716108712231</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716108712231</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Backend Ordner erstellt">
+      <option name="closed" value="true" />
+      <created>1716108740933</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716108740933</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Create Tour Parameter angepasst">
+      <option name="closed" value="true" />
+      <created>1716108772991</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716108772991</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Tour im Frontend erstellt und an Backend gesendet">
+      <option name="closed" value="true" />
+      <created>1716137201718</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716137201718</updated>
+    </task>
+    <task id="LOCAL-00024" summary="MapApi implementiert">
+      <option name="closed" value="true" />
+      <created>1716196544789</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716196544789</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Touren im Frontend sichtbar gemacht">
+      <option name="closed" value="true" />
+      <created>1716316638065</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716316638065</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Tour und TourLog Delete/Update implementiert">
+      <option name="closed" value="true" />
+      <created>1716369988843</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1716369988843</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Tour-Planner Home Link">
+      <option name="closed" value="true" />
+      <created>1716754268212</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754268212</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Routen für Links und Buttons">
+      <option name="closed" value="true" />
+      <created>1716754293680</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754293680</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Überschrift geändert">
+      <option name="closed" value="true" />
+      <created>1716754419136</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754419136</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Variablen geändert">
+      <option name="closed" value="true" />
+      <created>1716754503704</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754503704</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Tour-Detail und Edit-Tour im Frontend implementiert">
+      <option name="closed" value="true" />
+      <created>1716754605789</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754605789</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Tour-Logs erstellen, editieren und löschen im Frontend implementiert">
+      <option name="closed" value="true" />
+      <created>1716754693111</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716754693111</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Tour und dazugehörige Logs löschen implementiert">
+      <option name="closed" value="true" />
+      <created>1716799869808</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1716799869808</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Autocomplete implementiert">
+      <option name="closed" value="true" />
+      <created>1716834075032</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716834075032</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Map für Route implementiert">
+      <option name="closed" value="true" />
+      <created>1716834099441</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1716834099441</updated>
+    </task>
+    <task id="LOCAL-00036" summary="unnötige Unittests gelöscht">
+      <option name="closed" value="true" />
+      <created>1716897025593</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716897025593</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Suchleiste implementiert">
+      <option name="closed" value="true" />
+      <created>1716927318013</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716927318013</updated>
+    </task>
+    <task id="LOCAL-00038" summary="searchDirection ganze Response body returned">
+      <option name="closed" value="true" />
+      <created>1717070421324</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717070421324</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Time und Distance nur in TourDetail implementiert um Request Anzahl zu verringern">
+      <option name="closed" value="true" />
+      <created>1717070501773</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1717070501773</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Report PDFs implemented">
+      <option name="closed" value="true" />
+      <created>1717081725221</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1717081725221</updated>
+    </task>
+    <task id="LOCAL-00041" summary="search bar adjusted">
+      <option name="closed" value="true" />
+      <created>1717164706804</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1717164706804</updated>
+    </task>
+    <task id="LOCAL-00042" summary="PDF improved">
+      <option name="closed" value="true" />
+      <created>1717165103826</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1717165103826</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Unnötige Klassen gelöscht">
+      <option name="closed" value="true" />
+      <created>1717259122705</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1717259122705</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Pdf verbessert">
+      <option name="closed" value="true" />
+      <created>1717259673992</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1717259673992</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Appbar und Tourtabelle geändert">
+      <option name="closed" value="true" />
+      <created>1717354398574</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1717354398574</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Protokoll">
+      <option name="closed" value="true" />
+      <created>1717358475465</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1717358475466</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Deutsch zu English">
+      <option name="closed" value="true" />
+      <created>1718096465241</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1718096465241</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Deutsch zu English">
+      <option name="closed" value="true" />
+      <created>1718097470629</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1718097470629</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Deutsch zu English">
+      <option name="closed" value="true" />
+      <created>1718098125441</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1718098125441</updated>
+    </task>
+    <task id="LOCAL-00050" summary="pom file moved to backend and pom_parent created">
+      <option name="closed" value="true" />
+      <created>1718098875926</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1718098875926</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="MapApi implementiert" />
+    <MESSAGE value="Touren im Frontend sichtbar gemacht" />
+    <MESSAGE value="Tour und TourLog Delete/Update implementiert" />
+    <MESSAGE value="Tour-Planner Home Link" />
+    <MESSAGE value="Routen für Links und Buttons" />
+    <MESSAGE value="Überschrift geändert" />
+    <MESSAGE value="Variablen geändert" />
+    <MESSAGE value="Tour-Detail und Edit-Tour im Frontend implementiert" />
+    <MESSAGE value="Tour-Logs erstellen, editieren und löschen im Frontend implementiert" />
+    <MESSAGE value="Tour und dazugehörige Logs löschen implementiert" />
+    <MESSAGE value="Autocomplete implementiert" />
+    <MESSAGE value="Map für Route implementiert" />
+    <MESSAGE value="unnötige Unittests gelöscht" />
+    <MESSAGE value="Suchleiste implementiert" />
+    <MESSAGE value="searchDirection ganze Response body returned" />
+    <MESSAGE value="Time und Distance nur in TourDetail implementiert um Request Anzahl zu verringern" />
+    <MESSAGE value="Report PDFs implemented" />
+    <MESSAGE value="search bar adjusted" />
+    <MESSAGE value="PDF improved" />
+    <MESSAGE value="Unnötige Klassen gelöscht" />
+    <MESSAGE value="Pdf verbessert" />
+    <MESSAGE value="Appbar und Tourtabelle geändert" />
+    <MESSAGE value="Protokoll" />
+    <MESSAGE value="Deutsch zu English" />
+    <MESSAGE value="pom file moved to backend and pom_parent created" />
+    <option name="LAST_COMMIT_MESSAGE" value="pom file moved to backend and pom_parent created" />
+  </component>
+</project>

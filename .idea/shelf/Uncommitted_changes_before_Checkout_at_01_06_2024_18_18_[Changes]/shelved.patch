@@ -1,0 +1,311 @@
+Index: Tour Planner.postman_collection.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n\t\"info\": {\r\n\t\t\"_postman_id\": \"1f7414eb-970d-413f-926e-abaa4cf32ff9\",\r\n\t\t\"name\": \"Tour Planner\",\r\n\t\t\"description\": \"# \uD83D\uDE80 Get started here\\n\\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\\n\\n## \uD83D\uDD16 **How to use this template**\\n\\n#### **Step 1: Send requests**\\n\\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\\n\\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \\\"Send\\\" to see what happens.\\n\\n#### **Step 2: View responses**\\n\\nObserve the response tab for status code (200 OK), response time, and size.\\n\\n#### **Step 3: Send new Body data**\\n\\nUpdate or add new data in \\\"Body\\\" in the POST request. Typically, Body data is also used in PUT request.\\n\\n```\\n{\\n    \\\"name\\\": \\\"Add your name in the body\\\"\\n}\\n\\n ```\\n\\n#### **Step 4: Update the variable**\\n\\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\\n\\n#### **Step 5: Add tests in the \\\"Tests\\\" tab**\\n\\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \\\"Test Results\\\" tab.\\n\\n<img src=\\\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\\\">\\n\\n## \uD83D\uDCAA Pro tips\\n\\n- Use folders to group related requests and organize the collection.\\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \\\"Tests\\\" to verify if the API works as expected and execute workflows.\\n    \\n\\n## \uD83D\uDCA1Related templates\\n\\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \\n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \\n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)\",\r\n\t\t\"schema\": \"https://schema.getpostman.com/json/collection/v2.1.0/collection.json\",\r\n\t\t\"_exporter_id\": \"31515867\"\r\n\t},\r\n\t\"item\": [\r\n\t\t{\r\n\t\t\t\"name\": \"creating a tour 1\",\r\n\t\t\t\"event\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"listen\": \"test\",\r\n\t\t\t\t\t\"script\": {\r\n\t\t\t\t\t\t\"type\": \"text/javascript\",\r\n\t\t\t\t\t\t\"exec\": [\r\n\t\t\t\t\t\t\t\"pm.test(\\\"Successful POST request\\\", function () {\",\r\n\t\t\t\t\t\t\t\"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\",\r\n\t\t\t\t\t\t\t\"});\",\r\n\t\t\t\t\t\t\t\"\"\r\n\t\t\t\t\t\t]\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"POST\",\r\n\t\t\t\t\"header\": [],\r\n\t\t\t\t\"body\": {\r\n\t\t\t\t\t\"mode\": \"raw\",\r\n\t\t\t\t\t\"raw\": \"{\\n\\t\\\"name\\\": \\\"Add your name in the body\\\"\\n}\",\r\n\t\t\t\t\t\"options\": {\r\n\t\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"{{base_url}}/info\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"{{base_url}}\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"info\"\r\n\t\t\t\t\t]\r\n\t\t\t\t},\r\n\t\t\t\t\"description\": \"This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\\n\\nA successful POST request typically returns a `200 OK` or `201 Created` response code.\"\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"tour 2\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"POST\",\r\n\t\t\t\t\"header\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"key\": \"Content-Type\",\r\n\t\t\t\t\t\t\"value\": \"application/json\",\r\n\t\t\t\t\t\t\"type\": \"text\"\r\n\t\t\t\t\t}\r\n\t\t\t\t],\r\n\t\t\t\t\"body\": {\r\n\t\t\t\t\t\"mode\": \"raw\",\r\n\t\t\t\t\t\"raw\": \"{\\r\\n    \\\"name\\\": \\\"Tour 2\\\",\\r\\n    \\\"description\\\": \\\"Description 1\\\",\\r\\n    \\\"from_location\\\": \\\"Location 1\\\",\\r\\n    \\\"to_location\\\": \\\"Location 2\\\",\\r\\n    \\\"transport_type\\\": \\\"Bike\\\",\\r\\n    \\\"distance\\\": 1000,\\r\\n    \\\"time\\\": 25,\\r\\n    \\\"route_info\\\": \\\"Route 1\\\"\\r\\n}\",\r\n\t\t\t\t\t\"options\": {\r\n\t\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tour\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tour\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"showing all tours\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"GET\",\r\n\t\t\t\t\"header\": []\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"get tour by name\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"GET\",\r\n\t\t\t\t\"header\": [],\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tour/name/Tour 1\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tour\",\r\n\t\t\t\t\t\t\"name\",\r\n\t\t\t\t\t\t\"Tour 1\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"creating tour log 52\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"POST\",\r\n\t\t\t\t\"header\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"key\": \"Content-Type\",\r\n\t\t\t\t\t\t\"value\": \"application/json\",\r\n\t\t\t\t\t\t\"type\": \"text\"\r\n\t\t\t\t\t}\r\n\t\t\t\t],\r\n\t\t\t\t\"body\": {\r\n\t\t\t\t\t\"mode\": \"raw\",\r\n\t\t\t\t\t\"raw\": \"{\\r\\n    \\\"tour\\\": 52,\\r\\n    \\\"dateTime\\\": \\\"2022-12-31T12:00:00\\\",\\r\\n    \\\"comment\\\": \\\"This is a comment\\\",\\r\\n    \\\"difficulty\\\": \\\"Easy\\\",\\r\\n    \\\"totalDistance\\\": 100.0,\\r\\n    \\\"totalTime\\\": \\\"2 hours\\\",\\r\\n    \\\"rating\\\": 4.0\\r\\n}\",\r\n\t\t\t\t\t\"options\": {\r\n\t\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tourlog\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tourlog\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"all tour logs\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"GET\",\r\n\t\t\t\t\"header\": [],\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tourlog\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tourlog\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"search for tour logs for tour 52\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"GET\",\r\n\t\t\t\t\"header\": [],\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tourlog/tour/52\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tourlog\",\r\n\t\t\t\t\t\t\"tour\",\r\n\t\t\t\t\t\t\"52\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"name\": \"tour log 2\",\r\n\t\t\t\"request\": {\r\n\t\t\t\t\"method\": \"POST\",\r\n\t\t\t\t\"header\": [\r\n\t\t\t\t\t{\r\n\t\t\t\t\t\t\"key\": \"Content-Type\",\r\n\t\t\t\t\t\t\"value\": \"application/json\",\r\n\t\t\t\t\t\t\"type\": \"text\"\r\n\t\t\t\t\t}\r\n\t\t\t\t],\r\n\t\t\t\t\"body\": {\r\n\t\t\t\t\t\"mode\": \"raw\",\r\n\t\t\t\t\t\"raw\": \"{\\r\\n    \\\"tour\\\": 602,\\r\\n    \\\"dateTime\\\": \\\"2022-12-31T12:00:00\\\",\\r\\n    \\\"comment\\\": \\\"This is a comment\\\",\\r\\n    \\\"difficulty\\\": \\\"hard\\\",\\r\\n    \\\"totalDistance\\\": 100.0,\\r\\n    \\\"totalTime\\\": \\\"5 hours\\\",\\r\\n    \\\"rating\\\": 2.0\\r\\n}\",\r\n\t\t\t\t\t\"options\": {\r\n\t\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\t\"url\": {\r\n\t\t\t\t\t\"raw\": \"http://localhost:8080/tourlog\",\r\n\t\t\t\t\t\"protocol\": \"http\",\r\n\t\t\t\t\t\"host\": [\r\n\t\t\t\t\t\t\"localhost\"\r\n\t\t\t\t\t],\r\n\t\t\t\t\t\"port\": \"8080\",\r\n\t\t\t\t\t\"path\": [\r\n\t\t\t\t\t\t\"tourlog\"\r\n\t\t\t\t\t]\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"response\": []\r\n\t\t}\r\n\t],\r\n\t\"event\": [\r\n\t\t{\r\n\t\t\t\"listen\": \"prerequest\",\r\n\t\t\t\"script\": {\r\n\t\t\t\t\"type\": \"text/javascript\",\r\n\t\t\t\t\"exec\": [\r\n\t\t\t\t\t\"\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"listen\": \"test\",\r\n\t\t\t\"script\": {\r\n\t\t\t\t\"type\": \"text/javascript\",\r\n\t\t\t\t\"exec\": [\r\n\t\t\t\t\t\"\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t}\r\n\t],\r\n\t\"variable\": [\r\n\t\t{\r\n\t\t\t\"key\": \"id\",\r\n\t\t\t\"value\": \"1\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"key\": \"base_url\",\r\n\t\t\t\"value\": \"https://postman-rest-api-learner.glitch.me/\"\r\n\t\t}\r\n\t]\r\n}
+===================================================================
+diff --git a/Tour Planner.postman_collection.json b/Tour Planner.postman_collection.json
+--- a/Tour Planner.postman_collection.json	
++++ b/Tour Planner.postman_collection.json	
+@@ -83,6 +83,108 @@
+ 			"response": []
+ 		},
+ 		{
++			"name": "tour 3",
++			"request": {
++				"method": "POST",
++				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json",
++						"type": "text"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"name\": \"Tour 2\",\r\n    \"description\": \"Description 1\",\r\n    \"from_location\": \"Location 1\",\r\n    \"to_location\": \"Location 2\",\r\n    \"transport_type\": \"Bike\",\r\n    \"distance\": 1000,\r\n    \"time\": 25,\r\n    \"route_info\": \"Route 1\"\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tour",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "tour 4",
++			"request": {
++				"method": "POST",
++				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json",
++						"type": "text"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"name\": \"Tour 2\",\r\n    \"description\": \"Description 1\",\r\n    \"from_location\": \"Location 1\",\r\n    \"to_location\": \"Location 2\",\r\n    \"transport_type\": \"Bike\",\r\n    \"distance\": 1000,\r\n    \"time\": 25,\r\n    \"route_info\": \"Route 1\"\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tour",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "tour 5",
++			"request": {
++				"method": "POST",
++				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json",
++						"type": "text"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"name\": \"Tour 2\",\r\n    \"description\": \"Description 1\",\r\n    \"from_location\": \"Location 1\",\r\n    \"to_location\": \"Location 2\",\r\n    \"transport_type\": \"Bike\",\r\n    \"distance\": 1000,\r\n    \"time\": 25,\r\n    \"route_info\": \"Route 1\"\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tour",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour"
++					]
++				}
++			},
++			"response": []
++		},
++		{
+ 			"name": "showing all tours",
+ 			"request": {
+ 				"method": "GET",
+@@ -116,6 +218,74 @@
+ 			"request": {
+ 				"method": "POST",
+ 				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json",
++						"type": "text"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"tour\": 52,\r\n    \"dateTime\": \"2022-12-31T12:00:00\",\r\n    \"comment\": \"This is a comment\",\r\n    \"difficulty\": \"Easy\",\r\n    \"totalDistance\": 100.0,\r\n    \"totalTime\": \"2 hours\",\r\n    \"rating\": 4.0\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tourlog",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tourlog"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "creating tour log 652",
++			"request": {
++				"method": "POST",
++				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json",
++						"type": "text"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"tour\": 52,\r\n    \"dateTime\": \"2022-12-31T12:00:00\",\r\n    \"comment\": \"This is a comment\",\r\n    \"difficulty\": \"Easy\",\r\n    \"totalDistance\": 100.0,\r\n    \"totalTime\": \"2 hours\",\r\n    \"rating\": 4.0\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tourlog",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tourlog"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "creating tour log 752",
++			"request": {
++				"method": "POST",
++				"header": [
+ 					{
+ 						"key": "Content-Type",
+ 						"value": "application/json",
+@@ -186,7 +356,7 @@
+ 			"response": []
+ 		},
+ 		{
+-			"name": "tour log 2",
++			"name": "tour log for tour 52",
+ 			"request": {
+ 				"method": "POST",
+ 				"header": [
+@@ -198,7 +368,7 @@
+ 				],
+ 				"body": {
+ 					"mode": "raw",
+-					"raw": "{\r\n    \"tour\": 602,\r\n    \"dateTime\": \"2022-12-31T12:00:00\",\r\n    \"comment\": \"This is a comment\",\r\n    \"difficulty\": \"hard\",\r\n    \"totalDistance\": 100.0,\r\n    \"totalTime\": \"5 hours\",\r\n    \"rating\": 2.0\r\n}",
++					"raw": "{\r\n    \"tour\": 52,\r\n    \"dateTime\": \"2022-12-31T12:00:00\",\r\n    \"comment\": \"This is a comment\",\r\n    \"difficulty\": \"hard\",\r\n    \"totalDistance\": 100.0,\r\n    \"totalTime\": \"5 hours\",\r\n    \"rating\": 2.0\r\n}",
+ 					"options": {
+ 						"raw": {
+ 							"language": "json"
+@@ -217,6 +387,100 @@
+ 					]
+ 				}
+ 			},
++			"response": []
++		},
++		{
++			"name": "delete tour",
++			"request": {
++				"method": "DELETE",
++				"header": [],
++				"url": {
++					"raw": "http://localhost:8080/tour/1",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour",
++						"1"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "updating Tour 352",
++			"request": {
++				"method": "PUT",
++				"header": [
++					{
++						"key": "Content-Type",
++						"value": "application/json"
++					}
++				],
++				"body": {
++					"mode": "raw",
++					"raw": "{\r\n    \"name\": \"probe\",\r\n    \"description\": \"Hike\",\r\n    \"from_location\": \"Wien\",\r\n    \"to_location\": \"Klosterneuburg\",\r\n    \"transport_type\": \"Foot\",\r\n    \"distance\": 13.2,\r\n    \"time\": 4,\r\n    \"startCoordinates\": \"16.348388,48.198674\",\r\n    \"endCoordinates\": \"16.333802,48.297133\"\r\n}",
++					"options": {
++						"raw": {
++							"language": "json"
++						}
++					}
++				},
++				"url": {
++					"raw": "http://localhost:8080/tour/352",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour",
++						"352"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "get tour by id",
++			"request": {
++				"method": "GET",
++				"header": [],
++				"url": {
++					"raw": "http://localhost:8080/tour/3",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tour",
++						"3"
++					]
++				}
++			},
++			"response": []
++		},
++		{
++			"name": "get tourlog by id",
++			"request": {
++				"method": "GET",
++				"header": [],
++				"url": {
++					"raw": "http://localhost:8080/tourlog/53",
++					"protocol": "http",
++					"host": [
++						"localhost"
++					],
++					"port": "8080",
++					"path": [
++						"tourlog",
++						"53"
++					]
++				}
++			},
+ 			"response": []
+ 		}
+ 	],
