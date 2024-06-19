@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ce1b985-3d5a-4e46-a8fc-e95612b179ea" name="Changes" comment="pom file moved to backend and pom_parent created">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-backend/.gitignore" afterDir="false" />
+    <list default="true" id="4ce1b985-3d5a-4e46-a8fc-e95612b179ea" name="Changes" comment="moving files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tour-planner-frontend/src/components/CreateTour.js" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-frontend/src/components/CreateTour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tour-planner-frontend/src/components/CreateTourLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-frontend/src/components/CreateTourLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tour-planner-frontend/src/components/EditTour.js" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-frontend/src/components/EditTour.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tour-planner-frontend/src/components/EditTourLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/tour-planner-frontend/src/components/EditTourLog.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,55 +74,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MapApiImpl.executor": "Run",
-    "Application.PDFGenerator.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JUnit.JpaDemoApplicationTests.executor": "Run",
-    "JUnit.JpaDemoApplicationTests.test_TourEntity.executor": "Run",
-    "JUnit.PersonDtoTest.executor": "Run",
-    "JUnit.TourDtoTest.executor": "Run",
-    "JUnit.TourLogDtoTest.executor": "Run",
-    "JUnit.TourLogTest.executor": "Run",
-    "JUnit.TourTest (1).executor": "Run",
-    "JUnit.TourTest.executor": "Run",
-    "JUnit.TourTest.test_TourEntity.executor": "Run",
-    "JUnit.jpademo in jpa_demo.executor": "Run",
-    "JUnit.tourplanner in TourPlanner_Panganiban_Koc (1).executor": "Run",
-    "JUnit.tourplanner in TourPlanner_Panganiban_Koc.executor": "Run",
-    "JavaScript Debug.hello_world.html.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.JpaDemoApplication (1).executor": "Run",
-    "Spring Boot.JpaDemoApplication.executor": "Run",
-    "Spring Boot.TourPlannerApplication (1).executor": "Run",
-    "Spring Boot.TourPlannerApplication.executor": "Run",
-    "git-widget-placeholder": "develop",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/natha/OneDrive/Desktop/FHTW/4. Semester/Software Engineering 2/project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MapApiImpl.executor&quot;: &quot;Run&quot;,
+    &quot;Application.PDFGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.JpaDemoApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JpaDemoApplicationTests.test_TourEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PersonDtoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourDtoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourLogDtoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourLogTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TourTest.test_TourEntity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.jpademo in jpa_demo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.tourplanner in TourPlanner_Panganiban_Koc (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.tourplanner in TourPlanner_Panganiban_Koc.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.hello_world.html.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.JpaDemoApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.JpaDemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TourPlannerApplication (1).executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.TourPlannerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/natha/OneDrive/Desktop/FHTW/4. Semester/Software Engineering 2/project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\natha\OneDrive\Desktop\FHTW\4. Semester\Software Engineering 2\project\tour-planner-backend" />
@@ -325,15 +329,9 @@
       <workItem from="1718096318072" duration="952000" />
       <workItem from="1718097292773" duration="311000" />
       <workItem from="1718097618466" duration="4540000" />
-      <workItem from="1718103878115" duration="1126000" />
-    </task>
-    <task id="LOCAL-00002" summary="connecting postgres database from docker container">
-      <option name="closed" value="true" />
-      <created>1711192180418</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711192180418</updated>
+      <workItem from="1718103878115" duration="1969000" />
+      <workItem from="1718788788674" duration="53000" />
+      <workItem from="1718788861153" duration="2812000" />
     </task>
     <task id="LOCAL-00003" summary="dependencies for postgres added">
       <option name="closed" value="true" />
@@ -719,7 +717,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718098875926</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="moving files">
+      <option name="closed" value="true" />
+      <created>1718105310328</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1718105310328</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,7 +755,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="MapApi implementiert" />
     <MESSAGE value="Touren im Frontend sichtbar gemacht" />
     <MESSAGE value="Tour und TourLog Delete/Update implementiert" />
     <MESSAGE value="Tour-Planner Home Link" />
@@ -774,6 +779,7 @@
     <MESSAGE value="Protokoll" />
     <MESSAGE value="Deutsch zu English" />
     <MESSAGE value="pom file moved to backend and pom_parent created" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom file moved to backend and pom_parent created" />
+    <MESSAGE value="moving files" />
+    <option name="LAST_COMMIT_MESSAGE" value="moving files" />
   </component>
 </project>

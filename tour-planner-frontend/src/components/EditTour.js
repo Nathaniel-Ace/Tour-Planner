@@ -98,8 +98,19 @@ const EditTour = () => {
         }
     };
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // Check if all fields are filled
+        for (let field in formData) {
+            if (!formData[field]) {
+                setErrorMessage('All fields must be filled');
+                return;
+            }
+        }
+
         try {
             const { from_location, to_location } = formData;
             const startCoordinates = await searchAddress(from_location);
@@ -201,6 +212,9 @@ const EditTour = () => {
                         <Button type="submit" variant="contained" color="primary">
                             Update
                         </Button>
+                    </Grid>
+                    <Grid item xs={12}>
+                        {errorMessage && <Typography color="error">{errorMessage}</Typography>}
                     </Grid>
                 </Grid>
             </form>
