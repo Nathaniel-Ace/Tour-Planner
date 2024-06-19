@@ -1,5 +1,4 @@
-// components/CreateTourLog.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
     Container,
     TextField,
@@ -26,6 +25,7 @@ const CreateTourLog = () => {
     const navigate = useNavigate();
     const [totalTimeHours, setTotalTimeHours] = useState('');
     const [totalTimeMinutes, setTotalTimeMinutes] = useState('');
+    const [isFormValid, setIsFormValid] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -42,6 +42,22 @@ const CreateTourLog = () => {
     const handleRatingChange = (event, newValue) => {
         setFormData((prevData) => ({ ...prevData, rating: newValue }));
     };
+
+    const validateForm = useCallback(() => {
+        const { comment, totalDistance, rating, difficulty } = formData;
+        return (
+            comment.trim() !== '' &&
+            totalDistance.trim() !== '' &&
+            totalTimeHours.trim() !== '' &&
+            totalTimeMinutes.trim() !== '' &&
+            rating !== '' &&
+            difficulty !== ''
+        );
+    }, [formData, totalTimeHours, totalTimeMinutes]);
+
+    useEffect(() => {
+        setIsFormValid(validateForm());
+    }, [formData, totalTimeHours, totalTimeMinutes, validateForm]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -71,6 +87,7 @@ const CreateTourLog = () => {
                             variant="outlined"
                             value={formData.comment}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -81,6 +98,7 @@ const CreateTourLog = () => {
                             variant="outlined"
                             value={formData.totalDistance}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -89,8 +107,9 @@ const CreateTourLog = () => {
                             name="totalTimeHours"
                             label="Total Time (Hours)"
                             variant="outlined"
-                            value={formData.totalTimeHours}
+                            value={totalTimeHours}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -99,8 +118,9 @@ const CreateTourLog = () => {
                             name="totalTimeMinutes"
                             label="Total Time (Minutes)"
                             variant="outlined"
-                            value={formData.totalTimeMinutes}
+                            value={totalTimeMinutes}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -138,7 +158,7 @@ const CreateTourLog = () => {
                         </Box>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button type="submit" variant="contained" color="primary">
+                        <Button type="submit" variant="contained" color="primary" disabled={!isFormValid}>
                             Create
                         </Button>
                     </Grid>

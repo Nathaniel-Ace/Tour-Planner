@@ -50,8 +50,18 @@ const EditTourLog = () => {
         }
     };
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // Check if all fields are filled
+        for (let field in formData) {
+            if (!formData[field]) {
+                setErrorMessage('All fields must be filled');
+                return;
+            }
+        }
 
         try {
             const totalTime = `${totalTimeHours}:${totalTimeMinutes}`;
@@ -80,6 +90,7 @@ const EditTourLog = () => {
                             variant="outlined"
                             value={formData.comment}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -90,6 +101,7 @@ const EditTourLog = () => {
                             variant="outlined"
                             value={formData.totalDistance}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -100,6 +112,7 @@ const EditTourLog = () => {
                             variant="outlined"
                             value={totalTimeHours}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -110,6 +123,7 @@ const EditTourLog = () => {
                             variant="outlined"
                             value={totalTimeMinutes}
                             onChange={handleChange}
+                            autoComplete="off"
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -144,6 +158,9 @@ const EditTourLog = () => {
                         <Button type="submit" fullWidth variant="contained" color="primary">
                             Update
                         </Button>
+                    </Grid>
+                    <Grid item xs={12}>
+                        {errorMessage && <Typography color="error">{errorMessage}</Typography>}
                     </Grid>
                 </Grid>
             </form>
